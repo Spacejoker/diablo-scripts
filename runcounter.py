@@ -3,7 +3,7 @@ import os
 
 def do_run(category):
   # Each run increments the filesize by 1 byte
-  runs = os.path.getsize('C:/dev/python/%s.txt' % category)
+  runs = os.path.getsize('%s.txt' % category)
   last_mod = 0
   f = open('%s.txt' % category, 'a')
   
