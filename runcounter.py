@@ -3,9 +3,15 @@ import os
 
 def do_run(category):
   # Each run increments the filesize by 1 byte
-  runs = os.path.getsize('%s.txt' % category)
   last_mod = 0
-  f = open('%s.txt' % category, 'a')
+
+  filename = '%s.txt' % category
+  if os.path.exists(filename):
+    append_write = 'a' # append if already exists
+  else:
+    append_write = 'w' # make a new file if not
+  f = open(filename, append_write)
+  runs = os.path.getsize(filename)
   
   def last_mod_date():
     return os.stat('C:/games/Diablo II/D2SE/CORES/1.13c/save/Klarabebis.d2x').st_mtime
